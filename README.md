@@ -2,7 +2,7 @@ This script can be used both the on-premises server deployment and AWS EC2 insta
 
 # Jupiter Site Deployment Script
 
-This repository contains a bash script that simplifies the deployment of the Jupiter website on either an on-premises server or an AWS EC2 instance using user data. The script automates the process of updating the system, installing Apache HTTP server (httpd), and deploying the Jupiter site.
+This repository contains a bash script(script-github.sh) that simplifies the deployment of the Jupiter website on either an on-premises server or an AWS EC2 instance using user data. The script automates the process of updating the system, installing Apache HTTP server (httpd), and deploying the Jupiter site.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Follow the steps below to get started with the deployment:
 1. Clone this repository to your server or download the script file directly.
 
 2. Make the script executable:
-   chmod +x jupiter_site_deployment.sh
+   chmod +x script-github.sh
 
 3. Modify the `wget` command to replace the URL `https://github.com/kronphe/jupiter-site/raw/main/jupiter-main.zip` with the appropriate source URL for your Jupiter website ZIP file.
 
@@ -41,7 +41,7 @@ To use this script for deploying the Jupiter website on an on-premises server, f
    cd /var/www/html
 
 3. Execute the script using sudo (as some commands require root privileges):
-   sudo ./jupiter_site_deployment.sh
+   sudo ./script-github.sh
 
 4. The script will start executing the deployment process. It will update the system, install Apache HTTP server, and deploy the Jupiter site using the specified ZIP file.
 
@@ -60,9 +60,9 @@ To use this script as user data during the launch of an EC2 instance via the AWS
 5. Select an instance type. For testing purposes, you can choose the "t2.micro" instance type.
 
 6. Configure the instance details as needed.
-(attached the IAM role created that allow EC2 instance to download files from S3)
+(attached the IAM role created that allow EC2 instance to download files from github repository)
 
-7. In the "User data" section, select "As text" and paste the content of the `jupiter_site_deployment.sh` script.
+7. In the "User data" section, select "As text" and paste the content of the `script-github.sh` script.
 
 8. Proceed with the rest of the EC2 instance configuration, including setting up security groups, adding storage, and configuring any other settings required for your use case.
 
